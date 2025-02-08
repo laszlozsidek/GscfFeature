@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Item {
 
-    private String itemName;
-    private Float price;
-    private String category;
+    private final String itemName;
+    private final Float price;
+    private final String category;
 
     public Item(String itemName, String price, String category) {
         this.itemName = itemName;
@@ -18,24 +18,12 @@ public class Item {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
     public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
     public String getCategory() {
         return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     @Override
@@ -49,4 +37,10 @@ public class Item {
     public int hashCode() {
         return Objects.hash(itemName, price, category);
     }
+
+    @Override
+    public String toString() {
+        return itemName + "(price: " + price + ", category: " + category + ")";
+    }
+
 }
