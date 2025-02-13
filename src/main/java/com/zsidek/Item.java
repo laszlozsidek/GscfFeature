@@ -43,4 +43,20 @@ public class Item {
         return itemName + "(price: " + price + ", category: " + category + ")";
     }
 
+    public String getDifferences(Item item) {
+        StringBuilder differences = new StringBuilder();
+        differences
+                .append("\n")
+                .append(this.getItemName())
+                .append(" has different\n");
+        if (!Objects.equals(this.getPrice(), item.getPrice())) {
+            differences.append("\tprice values: ")
+                    .append(String.format("%s - %s\n", this.getPrice(), item.getPrice()));
+        }
+        if (!Objects.equals(this.getCategory(), item.getCategory())) {
+            differences.append("\tcategory values: ")
+                    .append(String.format("%s - %s\n", this.getCategory(), item.getCategory()));
+        }
+        return differences.toString();
+    }
 }
