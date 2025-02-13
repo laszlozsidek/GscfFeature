@@ -22,7 +22,7 @@ public class Market {
                 .equals(new HashSet<>(secondList));
     }
 
-    public void logDifferentItemsInLists() {
+    public String logDifferentItemsInLists() {
         Set<String> stringSet = new HashSet<>();
 
         List<Item> distinctFromList1 = firstlist.stream()
@@ -59,6 +59,6 @@ public class Market {
             }
         }
 
-        stringSet.forEach(System.out::println);
+        return stringSet.toString();
     }
 }

@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.util.List;
 
@@ -41,10 +42,6 @@ public class StepDefinitions {
 
     @Then("the lists should contain the same items with name, price, and category, regardless of order")
     public void theListsShouldContainTheSameItemsWithNamePriceAndCategoryRegardlessOfOrder() {
-        if (result) {
-            System.out.println("The lists contain the same items with name, price, and category");
-        } else {
-            market.logDifferentItemsInLists();
-        }
+        Assert.assertTrue(market.logDifferentItemsInLists(), result);
     }
 }
