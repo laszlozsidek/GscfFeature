@@ -3,17 +3,21 @@ package com.zsidek;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Market {
     private final List<Item> firstlist = new ArrayList<>();
     private final List<Item> secondList = new ArrayList<>();
+    static final Set<Item> bigList = new HashSet<>();
 
     public void addItemToFirstList(Item item) {
         this.firstlist.add(item);
+        bigList.add(item);
     }
 
     public void addItemToSecondList(Item item) {
         this.secondList.add(item);
+        bigList.add(item);
     }
 
     public boolean compareLists() {
@@ -33,11 +37,18 @@ public class Market {
         StringBuilder differences = new StringBuilder();
         for (Item item1 : distinctFromList1) {
             for (Item item2 : distinctFromList2) {
-                if (item1.getItemName().equals(item2.getItemName())) {
-                    differences.append(item1.getDifferences(item2));
-                }
+                differences.append(item1.getDifferences(item2));
             }
+        }
+        differences.append("\nNot recognized items:\n");
+        for (Item item1 : getBigList()) {
+            differences.append(item1).append("\n");
         }
         return differences.toString();
     }
+
+    private Set<Item> getBigList() {
+        return bigList;
+    }
+
 }
