@@ -44,9 +44,11 @@ public class Market {
                 differences.append(item1.getDifferences(item2));
             }
         }
-        differences.append("\nNot recognized items:\n");
-        for (Item item1 : getBigList()) {
-            differences.append(item1).append("\n");
+        if (!getBigList().isEmpty()) {
+            differences.append("\nNot recognized items:\n");
+            for (Item item1 : getBigList()) {
+                differences.append(item1).append("\n");
+            }
         }
         return differences.toString();
     }
