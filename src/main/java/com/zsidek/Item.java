@@ -47,8 +47,8 @@ public class Item implements Comparable<Item> {
         StringBuilder differences = new StringBuilder();
         int compared = this.compareTo(item);
         if (compared >= 0) {
-            Market.bigList.remove(this);
-            Market.bigList.remove(item);
+            Market.wholeList.remove(this);
+            Market.wholeList.remove(item);
             differences
                     .append("\n")
                     .append(this.getItemName())
@@ -62,8 +62,8 @@ public class Item implements Comparable<Item> {
                         .append(String.format("%s - %s\n", this.getCategory(), item.getCategory()));
             }
         } else if (this.getItemName().matches(getRegex(item.getItemName())) || item.getItemName().matches(getRegex(this.getItemName()))) {
-            Market.bigList.remove(this);
-            Market.bigList.remove(item);
+            Market.wholeList.remove(this);
+            Market.wholeList.remove(item);
             differences
                     .append(String.format("\n%s and %s may have different name values. Same items?\n", this.getItemName(), item.getItemName()));
         }

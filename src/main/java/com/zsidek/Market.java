@@ -8,16 +8,16 @@ import java.util.Set;
 public class Market {
     private final List<Item> firstlist = new ArrayList<>();
     private final List<Item> secondList = new ArrayList<>();
-    static final Set<Item> bigList = new HashSet<>();
+    static final Set<Item> wholeList = new HashSet<>();
 
     public void addItemToFirstList(Item item) {
         this.firstlist.add(item);
-        bigList.add(item);
+        wholeList.add(item);
     }
 
     public void addItemToSecondList(Item item) {
         this.secondList.add(item);
-        bigList.add(item);
+        wholeList.add(item);
     }
 
     public boolean compareLists() {
@@ -36,7 +36,7 @@ public class Market {
 
         secondList.stream()
                 .filter(firstlist::contains)
-                .toList().forEach(bigList::remove);
+                .toList().forEach(wholeList::remove);
 
         StringBuilder differences = new StringBuilder();
         for (Item item1 : distinctFromList1) {
@@ -52,7 +52,7 @@ public class Market {
     }
 
     private Set<Item> getBigList() {
-        return bigList;
+        return wholeList;
     }
 
 }
