@@ -34,6 +34,10 @@ public class Market {
                 .filter(element -> !firstlist.contains(element))
                 .toList();
 
+        secondList.stream()
+                .filter(firstlist::contains)
+                .toList().forEach(bigList::remove);
+
         StringBuilder differences = new StringBuilder();
         for (Item item1 : distinctFromList1) {
             for (Item item2 : distinctFromList2) {

@@ -7,8 +7,10 @@ Feature: Compare lists
       | orange | 1.10  | fruit     |
       | banana | 0.75  | fruit     |
       | carrot | 0.95  | vegetable |
+      | broccoli | 1.0  | vegetable |
     And I have the following items in the second list:
       | name   | price | category  |
+      | brocoli | 1.05  | vegeable |
       | banana | 0.715 | frusit    |
       | apple  | 1.010 | fruit     |
       | orange | 1.110 | fruit     |
